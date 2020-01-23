@@ -13,6 +13,55 @@
 
 using namespace std;
 
+void dibujarCasa() {
+	glBegin(GL_POLYGON);
+
+	glColor3f(0.0f, 0.7f, 0.5f);
+
+	glVertex3f(-0.4f, 0.3f, 0.0f);
+	glVertex3f(0.6f, 0.3f, 0.0f);
+	glVertex3f(-0.4f, -0.7f, 0.0f);
+	glVertex3f(0.6f, -0.7f, 0.0f);
+	glVertex3f(0.6f, 0.3f, 0.0f);
+
+	glEnd();
+
+	glBegin(GL_TRIANGLES);
+
+	glColor3f(0.7f, 0.3f, 0.2f);
+
+	glVertex3f(-0.6f, 0.2f, 0.0f);
+	glVertex3f(0.8f, 0.2f, 0.0f);
+	glVertex3f(0.1f, 0.6f, 0.0f);
+
+	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(0.9f, 0.9f, 0.9f);
+
+	glVertex3f(-0.1f, -0.2f, 0.0f);
+	glVertex3f(0.3f, -0.2f, 0.0f);
+	glVertex3f(-0.1f, -0.7f, 0.0f);
+	glVertex3f(0.3f, -0.7f, 0.0f);
+	glVertex3f(0.3f, -0.2f, 0.0f);
+
+	glEnd();
+}
+
+void dibujarCesped() {
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(0.6f, 1.0f, 0.5f);
+
+	glVertex3f(-1.0f, -0.7f, 0.0f);
+	glVertex3f(1.0f, -0.7f, 0.0f);
+	glVertex3f(-1.0f, -1.0f, 0.0f);
+	glVertex3f(1.0f, -1.0f, 0.0f);
+	glVertex3f(1.0f, -0.7f, 0.0f);
+}
+
 void dibujarPoligono() {
 	glBegin(GL_POLYGON);
 	glColor3f(0.4f, 0.4f, 0.9f);
@@ -86,7 +135,8 @@ void dibujarTriangulos() {
 }
 
 void dibujar() {
-	dibujarPoligono();
+	dibujarCasa();
+	dibujarCesped();
 
 	glEnd();
 }
@@ -103,7 +153,8 @@ int main() {
 
 	// Si se pudo iniciar GLFW
 	// Inicializamos la ventana
-	window = glfwCreateWindow(1500, 600, "Ventana", NULL, NULL);
+	//window = glfwCreateWindow(1500, 600, "Ventana", NULL, NULL);
+	window = glfwCreateWindow(600, 600, "Ventana", NULL, NULL);
 
 	// Si no se pudo crear la ventana
 	// Terminamos la ejecución
@@ -129,9 +180,10 @@ int main() {
 	// Ciclo de dibujo (Draw loop)
 	while (!glfwWindowShouldClose(window)) {
 		// Establecer región de dibujo
-		glViewport(0, 0, 1500, 600);
+		//glViewport(0, 0, 1500, 600);
+		glViewport(0, 0, 600, 600);
 		// Establecemos el color de borrado
-		glClearColor(1, 0.2, 0.5, 1);
+		glClearColor(1, 0.7, 0.5, 1);
 		// Borrar!
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
